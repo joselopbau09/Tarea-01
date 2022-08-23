@@ -34,34 +34,37 @@ public class Buscador {
      * Método que recorre la cadena carácter por carácter, para agregarlos a su lista correspondiente 
      * y por último comprobar el índice.
      *
-     * @param cadena String a recorrer.
+     * @param palabra String a recorrer.
      * @return int - Si todas las letras se repiten regresa -1, en otro caso regresa el indice de la primera letra que no se repite.
      */
-    public int busqueda( String cadena) {
+    public int busqueda( String palabra) {
+        String cadena = palabra.toLowerCase();
         int indice = -1;
-        
+        Character letra;
         for (int i = 0; i < cadena.length(); i++) {
-            letras.addFirst(cadena.charAt(i));
-            if (cadena.charAt(i) == ' ') {
+            letra = cadena.charAt(i);
+            letras.addLast(letra);
+            if (letra == ' ') {
                 continue;
             }
-            else if (letrasRep.contains(cadena.charAt(i))) {
+            else if (letrasRep.contains(letra)) {
                 continue;
             } else {
-                if (letrasUnicas.contains(cadena.charAt(i))) {
-                    int index = letrasUnicas.indexOf(cadena.charAt(i));
+                if (letrasUnicas.contains(letra)) {
+                    int index = letrasUnicas.indexOf(letra);
                     Character c = letrasUnicas.remove(index);
-                    letrasRep.addFirst(cadena.charAt(i));
+                    letrasRep.addFirst(letra);
                 } else {
-                    letrasUnicas.addFirst(cadena.charAt(i));
+                    letrasUnicas.addFirst(letra);
+
                 }
             }
         }
 
-        if (letrasUnicas.size() == 0) {
+        if (letrasUnicas.isEmpty()) {
             return indice;
         } else {
-            Character val = letrasUnicas.getFirst();
+            Character val = letrasUnicas.getLast();
             indice = letras.indexOf(val);
             return indice;
         }

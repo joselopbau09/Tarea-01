@@ -18,8 +18,6 @@ public class Prueba {
         cadena = scn.nextLine();
         scn.close();
         val = buscar.busqueda(cadena);
-        System.out.println(val);
-
+        System.out.println("Resultado: " + val);
     }
-
 }

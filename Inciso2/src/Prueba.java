@@ -1,3 +1,5 @@
+import java.io.*;
+import java.util.*;
 
 public class Prueba {
     /**
@@ -34,6 +36,7 @@ public class Prueba {
         }
         return arrModificado;
     }
+   
     /**
      * Método que de encontrar la cadena de menor longitud del arreglo. 
      *
@@ -50,11 +53,30 @@ public class Prueba {
         return val;
     }
 
+     /**
+     * Método que se encarga de imprimir en consola los resultados de la busqueda del prefijo.
+     *
+     * @param arr Arreglo de String con las palabras a buscar.
+     * @param cadena Prefijo en comun.
+     */
+    public static void imprime(String[] arr, String cadena) {
+        System.out.println("Ejemplo con las palabras:");
+        System.out.println(Arrays.toString(arr));
+        System.out.println("Prefijo comun: " + cadena);
+    }
+
     public static void main(String[] args) {
-        String arr[] = {"MAnana","mAnago", "mAnalo" };
-        String cadena;
+        String arrUno[] = {"manzana","manago", "marcuya" };
+        String arrDos[] = {"flow","flower", "flight" };
+        String arrTres[] = {"Manuel","Juan", "Yair", "Emanuel", "Margarita" };
+        String cadenaUno, cadenaDos, cadenaTres;
         
-        cadena = prefijo(arr);
-        System.out.println(cadena);
+        cadenaUno = prefijo(arrUno);
+        cadenaDos = prefijo(arrDos);
+        cadenaTres = prefijo(arrTres);
+        
+        imprime(arrUno, cadenaUno);
+        imprime(arrDos, cadenaDos);
+        imprime(arrTres, cadenaTres);
     }
 }
